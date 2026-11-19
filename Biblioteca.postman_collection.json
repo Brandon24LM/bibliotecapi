@@ -1,0 +1,434 @@
+{
+  "info": {
+    "name": "Biblioteca API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear libro (201) - Huasipungo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/libro",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Huasipungo\",\n  \"autor\": \"Jorge Icaza\",\n  \"anio\": 1934,\n  \"disponible\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Crear libro (201) - Cien años de soledad",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/libro",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Cien años de soledad\",\n  \"autor\": \"Gabriel García Márquez\",\n  \"anio\": 1967,\n  \"disponible\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar todos (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Traer uno (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Traer uno inexistente (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "999"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Editar uno (200)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "2"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Cien años de soledad\",\n  \"autor\": \"Gabriel García Márquez\",\n  \"anio\": 1967,\n  \"disponible\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Editar inexistente (404)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "999"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"X\",\n  \"autor\": \"Y\",\n  \"anio\": 2000,\n  \"disponible\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Disponibles (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/disponibles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "disponibles"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Por autor - icaza (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/autor/icaza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "autor",
+            "icaza"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Antiguos antes de 1950 (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/antiguos?antes=1950",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "antiguos"
+          ],
+          "query": [
+            {
+              "key": "antes",
+              "value": "1950"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Antiguos sin parámetro - usa 1950 (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/antiguos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "antiguos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prestar (200)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/1/prestar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "1",
+            "prestar"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prestar otra vez (409)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/1/prestar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "1",
+            "prestar"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prestar inexistente (404)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/999/prestar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "999",
+            "prestar"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Devolver (200)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/1/devolver",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "1",
+            "devolver"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Devolver otra vez (409)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/1/devolver",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "1",
+            "devolver"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Devolver inexistente (404)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/999/devolver",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "999",
+            "devolver"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Eliminar (204)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Eliminar inexistente (404)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/libro/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "libro",
+            "999"
+          ]
+        }
+      }
+    }
+  ]
+}
